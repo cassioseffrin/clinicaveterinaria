@@ -1,62 +1,77 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package clinicaveterinaria;
 
- 
 import clinica.Cliente;
 import comparators.NomeComparator;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Date;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ *
  * @author cassioseffrin
  */
 public class Principal {
-
-    public static void main(String args[]) throws FileNotFoundException, IOException, ClassNotFoundException {
+    
+    
+    public static void main(String a[]){
+        
+       //criarColecaoTeste();
+        cadastrarCliente();
+        
+        
+        
+    }
+    
+    public static void cadastrarCliente(){
+        
+        Scanner scan = new Scanner (System.in);
+        System.out.printf("Digite o cpf: ");
+        String cpf =  scan.next();
+        
+        Cliente cliente = Cliente.procurarCliente(Long.parseLong(cpf));
+        
+        if (cliente == null){
+            System.out.println("CPF nao cadastrado!");
+            
+            
+            
+        }else{
+            System.out.println("cliente encontrada na base de dados: "+cliente.getNome());
+        }
+    }
+    
+    
+    
+    public static void criarColecaoTeste(){
         
         Cliente cassio = new Cliente(LocalDate.MAX, "49 9934.2344", "cliente VIP", "Cassio", 3223343239L, "Masculino", LocalDate.MIN, "Rua A");
-        Cliente lucas = new Cliente(LocalDate.MAX, "49 9934.2344", "cliente desconto", "Lucas", 3223343239L, "Masculino", LocalDate.MIN, "Rua A");
-      
-               
-        Set<Cliente> colecaoCliente = new TreeSet<>(new NomeComparator());
+        Cliente lucas = new Cliente(LocalDate.MAX, "49 9934.2344", "cliente desconto", "Lucas", 2443342930L, "Masculino", LocalDate.MIN, "Rua A");
+        HashSet<Cliente> colecaoCliente = new HashSet<>();
         colecaoCliente.add(lucas);
         colecaoCliente.add(cassio); 
+        
+        Cliente.gravarColecao(colecaoCliente);
  
        
-//        File f = new File("/Users/cassioseffrin/colecaoClientes.txt");
-//        FileOutputStream fos = new FileOutputStream(f);
-//        ObjectOutputStream oos = new ObjectOutputStream(fos);
-//        oos.writeObject(colecaoCliente);
-//   
-//        
-//       
-//        FileInputStream fis = new FileInputStream(f);
-//        ObjectInputStream ois = new ObjectInputStream(fis);
-//        Object col = ois.readObject();
-//        Set<Cliente> colecaoDeserializable = (Set<Cliente>) col;
-//        
-//        System.out.println("Tamanho colecao: "+ colecaoDeserializable.size());
-//                oos.flush();
-//        oos.close();
-        for (Cliente p:colecaoCliente){
-            System.out.println( p.getNome());
-        }
+    
         
 
 
+    
+        
+        
     }
-
+    
+    
 }

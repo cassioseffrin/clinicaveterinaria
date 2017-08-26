@@ -5,12 +5,11 @@
         <group>
             <file>file:/Users/cassioseffrin/NetBeansProjects/clinicaVeterinaria/src/clinica/Cliente.java</file>
             <file>file:/Users/cassioseffrin/NetBeansProjects/clinicaVeterinaria/src/comparators/NomeComparator.java</file>
+            <file>file:/Users/cassioseffrin/NetBeansProjects/clinicaVeterinaria/src/net/Servidor.java</file>
             <file>file:/Users/cassioseffrin/NetBeansProjects/clinicaVeterinaria/src/clinica/Pessoa.java</file>
-            <file>file:/Users/cassioseffrin/NetBeansProjects/clinicaVeterinaria/src/clinicaveterinaria/Principal.java</file>
-            <file>file:/Users/cassioseffrin/NetBeansProjects/clinicaVeterinaria/src/net/Client.java</file>
             <file>file:/Users/cassioseffrin/NetBeansProjects/clinicaVeterinaria/src/comparators/NascimentoComparator.java</file>
-            <file>file:/Users/cassioseffrin/NetBeansProjects/clinicaVeterinaria/src/net/Server.java</file>
-            <file>file:/Users/cassioseffrin/NetBeansProjects/clinicaVeterinaria/src/net/Recebe.java</file>
+            <file>file:/Users/cassioseffrin/NetBeansProjects/clinicaVeterinaria/src/clinicaveterinaria/Sockets.java</file>
+            <file>file:/Users/cassioseffrin/NetBeansProjects/clinicaVeterinaria/src/net/EnviaObjetosRede.java</file>
         </group>
     </open-files>
 </project-private>
