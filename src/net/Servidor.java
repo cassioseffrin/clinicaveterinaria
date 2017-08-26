@@ -23,23 +23,23 @@ public class Servidor extends Thread {
 
     public void receber() throws IOException, ClassNotFoundException {
 
-        serverSocket = new ServerSocket(4448);
-
+        serverSocket = new ServerSocket(5000);
         socket = serverSocket.accept();
-        System.out.println("Ouvindo rede");
-
+        //System.out.println("Ouvindo rede");
         inStream = new ObjectInputStream(socket.getInputStream());
+        Cliente cliente = (Cliente) inStream.readObject();
+        System.out.println("Nome: " + cliente.getNome());
+        System.out.println("Telefone: " + cliente.getTelefone());
+       
 
-//            Cliente cliente = (Cliente) inStream.readObject();
-//            System.out.println("Nome  = " + cliente.getNome());
-        Object col = inStream.readObject();
-
-        HashSet<Cliente> colecaoDeserializable = (HashSet<Cliente>) col;
-        for (Cliente p : colecaoDeserializable) {
-            System.out.println(p.getNome());
-        }
-
-        System.out.println("Tamanho colecao: " + colecaoDeserializable.size());
+//       Object col = inStream.readObject();
+//
+//        HashSet<Cliente> colecaoDeserializable = (HashSet<Cliente>) col;
+//        for (Cliente p : colecaoDeserializable) {
+//            System.out.println(p.getNome());
+//        }
+//
+//        System.out.println("Tamanho colecao: " + colecaoDeserializable.size());
 
         socket.close();
 

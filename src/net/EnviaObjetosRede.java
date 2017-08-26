@@ -26,21 +26,13 @@ public class EnviaObjetosRede {
 
         while (!isConnected) {
             try {
-                socket = new Socket("localHost", 4448);
+                socket = new Socket("10.0.0.158", 5000);
                 System.out.println("Conectado!");
                 isConnected = true;
                 outputStream = new ObjectOutputStream(socket.getOutputStream());
-                Cliente cassio = new Cliente(LocalDate.MAX, "49 9934.2344", "cliente VIP", "Cassio", 3223343239L, "Masculino", LocalDate.MIN, "Rua A");
-                Cliente cassio2 = new Cliente(LocalDate.MAX, "49 9934.2344", "cliente VIP", "Cassio2", 3223343239L, "Masculino", LocalDate.MIN, "Rua A");
-                Set<Cliente> colecaoCliente = new HashSet<>();
-                colecaoCliente.add(cassio);
-                colecaoCliente.add(cassio2);
-
-//        Cliente c1 = new Cliente();
-//        c1.setNome("Cassio");
-//        System.out.println("Object to be written = " + cassio);
-//                
-                outputStream.writeObject(colecaoCliente);
+                Cliente cliente = new Cliente(LocalDate.MAX, "49 9934.2344", "cliente preferencial", "Macson", 3223343239L, "Masculino", LocalDate.MIN, "Rua A");
+                       
+                outputStream.writeObject(cliente);
 
             } catch (SocketException se) {
                 se.printStackTrace();
@@ -56,3 +48,9 @@ public class EnviaObjetosRede {
         envia.enviar();
     }
 }
+ //  Cliente cassio2 = new Cliente(LocalDate.MAX, "49 9934.2344", "cliente VIP", "Cassio2", 3223343239L, "Masculino", LocalDate.MIN, "Rua A");
+               // Set<Cliente> colecaoCliente = new HashSet<>();
+              //  colecaoCliente.add(cassio);
+              //  colecaoCliente.add(cassio2);
+//        System.out.println("Object to be written = " + cassio);
+//      

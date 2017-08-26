@@ -22,7 +22,6 @@ public abstract class Pessoa implements Acoes, Serializable{
     public Pessoa(String nome, long cpf,  String sexo, LocalDate dataNascimento, String endereco) {
         this.nome = nome;
         this.cpf = cpf;
- 
         this.sexo = sexo;
         this.dataNascimento = dataNascimento;
         this.endereco = endereco;

@@ -17,7 +17,7 @@ public class Cliente extends Pessoa implements Serializable,Acoes{
     private String observacao;
     
     private final static String ARQUIVO="/Users/cassioseffrin/clinica/colectionCliente.dat";
-
+    public static final long serialVersionUID = 5000493038443485120L;
  
     public Cliente(LocalDate dataCadastro, String telefone, String observacao, String nome, long cpf,  String sexo, LocalDate dataNascimento, String endereco) {
         super(nome, cpf, sexo, dataNascimento, endereco);
