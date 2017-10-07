@@ -57,10 +57,7 @@ public class Principal {
         System.out.println("ate logo!");
     }
 
-    public static void cadastrarCliente() {
-
-       
-
+    public static void cadastrarCliente() { 
         Scanner scan = new Scanner(System.in);
         System.out.printf("Digite o cpf: ");
         String cpf = scan.next();
@@ -82,10 +79,12 @@ public class Principal {
         Cliente cliente = Cliente.procurarCliente(Long.parseLong(cpfS));
 
         if (cliente == null) {
-            JOptionPane.showMessageDialog(null, "O cliente nao encontrado! ", "Resultado", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "O cliente nao encontrado! ", 
+                    "Resultado");
 
         } else {
-            JOptionPane.showMessageDialog(null, "O cliente é: " + cliente.getNome(), "Resultado", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "O cliente é: " + 
+                    cliente.getNome(), "Resultado");
         }
     }
     public static void criarColecaoTeste() {
