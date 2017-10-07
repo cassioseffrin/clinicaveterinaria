@@ -101,9 +101,7 @@ public class Cliente extends Pessoa implements Serializable, Acoes {
      public static Cliente procurarCliente(long cpf){
         try {
             HashSet<Cliente> lista = lerColecao();
-          
-            
-            
+ 
             for (Cliente c: lista){
                 if (c.getCpf() == cpf){
                     return c;
