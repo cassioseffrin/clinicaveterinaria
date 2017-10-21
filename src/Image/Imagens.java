@@ -13,9 +13,9 @@ import javax.swing.SwingConstants;
  */
 public class Imagens extends JFrame {
 
-    private JLabel label1;
-    private JLabel label2;
-    private JLabel label3;
+    private final JLabel label1;
+    private final JLabel label2;
+    private final JLabel label3;
 
     public Imagens() {
         setLayout(new FlowLayout());
@@ -35,7 +35,7 @@ public class Imagens extends JFrame {
         label3.setIcon(tigre);
         label3.setHorizontalTextPosition(SwingConstants.CENTER);
         label3.setVerticalTextPosition(SwingConstants.BOTTOM);
-        label3.setToolTipText("Hey... watchout ! be aware... it's me!");
+        label3.setToolTipText("Hey, watchout ! be aware... it's me!");
         add(label3);
 
 

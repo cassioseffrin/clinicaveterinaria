@@ -80,11 +80,11 @@ public class Principal {
 
         if (cliente == null) {
             JOptionPane.showMessageDialog(null, "O cliente nao encontrado! ", 
-                    "Resultado");
+                    "Resultado", JOptionPane.ERROR_MESSAGE);
 
         } else {
             JOptionPane.showMessageDialog(null, "O cliente é: " + 
-                    cliente.getNome(), "Resultado");
+                    cliente.getNome(), "Resultado", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     public static void criarColecaoTeste() {

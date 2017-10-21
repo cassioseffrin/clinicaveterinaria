@@ -21,14 +21,14 @@ import javax.swing.KeyStroke;
  *
  * @author cassioseffrin
  */
-public class TelaComTextField extends JFrame {
+public class FrameComMenu extends JFrame {
 
-    private JTextField textField1;
-    private JTextField textField2;
+    private final JTextField textField1;
+    private final JTextField textField2;
 
-    private JButton b1;
+    private final JButton b1;
 
-    public TelaComTextField() {
+    public FrameComMenu() {
         setLayout(new FlowLayout());
         Manuseio manuseio = new Manuseio();
 
@@ -149,7 +149,7 @@ public class TelaComTextField extends JFrame {
     }
 
     public static void main(String a[]) {
-        TelaComTextField im = new TelaComTextField();
+        FrameComMenu im = new FrameComMenu();
         im.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         im.setSize(640, 480);
         im.setVisible(true);
