@@ -28,6 +28,7 @@ public class JFrameComDiversosPanels extends JFrame implements ActionListener {
     private final JMenu menuRelatorios;
     private final JMenuItem menuItemAnimal;
     private final JMenuItem menuItemCliente;
+    private final JMenuItem menuItemRelatorioClientes;
 
     public JFrameComDiversosPanels() {
 
@@ -59,7 +60,12 @@ public class JFrameComDiversosPanels extends JFrame implements ActionListener {
         menuCadastros.add(menuItemAnimal);
         menuItemCliente = new JMenuItem("Cadastro Cliente");
         menuItemCliente.addActionListener(this);
+        
+       
         menuCadastros.add(menuItemCliente);
+        
+        menuItemRelatorioClientes = new JMenuItem("Relatorio Cliente");
+        menuRelatorios.add(menuItemRelatorioClientes);
 
         jPanelMenu.add(menuBar);
 
