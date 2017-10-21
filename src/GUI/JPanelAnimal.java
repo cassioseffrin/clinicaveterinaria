@@ -5,6 +5,7 @@ import clinicaveterinaria.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -23,21 +24,27 @@ public class JPanelAnimal extends JPanel implements ActionListener{
     
     
     private JTextField textFieldNome;
+    private JTextField textFieldPeso;
     private JLabel labelNome;
+    private JLabel labelPeso;
     private JButton botaoSalvar;
  
     JPanelAnimal(){
-        setLayout(new FlowLayout());
+        setLayout(new GridLayout(3, 1));
         textFieldNome = new JTextField(10);
-        textFieldNome.setHorizontalAlignment(SwingConstants.LEFT);
-        labelNome = new JLabel("Digite o Peso:");
-        labelNome.setHorizontalTextPosition(SwingConstants.RIGHT);
+        textFieldPeso = new JTextField(10);
+        
+        labelNome = new JLabel("Digite o Nome:");
+        labelPeso = new JLabel("Digite o Peso:");
+        
         botaoSalvar = new JButton("Salvar");
-        botaoSalvar.setHorizontalAlignment(SwingConstants.LEFT);
+       
         botaoSalvar.addActionListener(this);
-        add(labelNome );
-        add(textFieldNome );
-        add(botaoSalvar );
+        add(labelNome);
+        add(textFieldNome);
+        add(labelPeso);
+        add(textFieldPeso );
+        add(botaoSalvar);
         
          this.setSize(500,200);
          setVisible(true);
