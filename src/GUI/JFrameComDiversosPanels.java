@@ -5,8 +5,10 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 /**
@@ -15,27 +17,23 @@ import javax.swing.JPanel;
  */
 public class JFrameComDiversosPanels extends JFrame implements ActionListener {
 
-    private JPanel jPanelMenu;
-    private JPanel jPainelCentro;
-    private JPanel jPainelCliente;
-    private JPanel jPainelAnimal;
-    private JPanel jPanelStatus;
+    private final JPanel jPanelMenu;
+    private final JPanel jPainelCentro;
+    private final JPanel jPainelCliente;
+    private final JPanel jPainelAnimal;
+    private final JPanel jPanelStatus;
 
-    private JButton botaoCadastroCliente;
-    private JButton botaoCadastroAnimal;
+    private final JMenuBar menuBar;
+    private final JMenu menuCadastros;
+    private final JMenu menuRelatorios;
+    private final JMenuItem menuItemAnimal;
+    private final JMenuItem menuItemCliente;
 
     public JFrameComDiversosPanels() {
-
-        botaoCadastroCliente = new JButton("Cadastro Cliente");
-        botaoCadastroAnimal = new JButton("Cadastro Animal");
-        botaoCadastroCliente.addActionListener(this);
-        botaoCadastroAnimal.addActionListener(this);
 
         jPanelMenu = new JPanel();
         jPanelMenu.setBackground(Color.red);
         jPanelMenu.setLayout(new FlowLayout());
-        jPanelMenu.add(botaoCadastroCliente);
-        jPanelMenu.add(botaoCadastroAnimal);
 
         jPainelCentro = new JPanel();
         jPainelCliente = new JPanelCliente();
@@ -47,6 +45,23 @@ public class JFrameComDiversosPanels extends JFrame implements ActionListener {
         add(jPanelMenu, BorderLayout.NORTH);
         add(jPainelCentro, BorderLayout.CENTER);
         add(jPanelStatus, BorderLayout.SOUTH);
+
+        menuBar = new JMenuBar();
+        menuCadastros = new JMenu("Cadastros");
+        menuBar.add(menuCadastros);
+
+        menuRelatorios = new JMenu("Relatorios");
+        menuBar.add(menuCadastros);
+        menuBar.add(menuRelatorios);
+
+        menuItemAnimal = new JMenuItem("Cadastro Animal");
+        menuItemAnimal.addActionListener(this);
+        menuCadastros.add(menuItemAnimal);
+        menuItemCliente = new JMenuItem("Cadastro Cliente");
+        menuItemCliente.addActionListener(this);
+        menuCadastros.add(menuItemCliente);
+
+        jPanelMenu.add(menuBar);
 
     }
 
@@ -60,7 +75,7 @@ public class JFrameComDiversosPanels extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == botaoCadastroCliente) {
+        if (e.getSource() == menuItemCliente) {
             jPainelCentro.removeAll();
             jPainelCentro.add(jPainelCliente);
 
@@ -68,7 +83,7 @@ public class JFrameComDiversosPanels extends JFrame implements ActionListener {
             setSize(600, 600);
             repaint();
         }
-        if (e.getSource() == botaoCadastroAnimal) {
+        if (e.getSource() == menuItemAnimal) {
             jPainelCentro.removeAll();
             jPainelCentro.add(jPainelAnimal, BorderLayout.CENTER);
 
