@@ -6,30 +6,20 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /**
  *
- * @author Rafael Vargas Mesquita
+ * @author cassioseffrin
  */
 public class DatabaseMySQL implements Database {
 
-    private static Connection connection;
-
-    
-    
-    public static Connection getConnection(){
-        if (connection == null){
-            return conectar();
-        }else{
-            return connection;
-        }
-    }
-    
+    private Connection connection;
  
-    private  static Connection conectar() {
+    public Connection conectar() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-             connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1/veterinaria", "root","123");
-            return connection;
+            this.connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1/veterinaria", "root","123");
+            return this.connection;
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(DatabaseMySQL.class.getName()).log(Level.SEVERE, null, ex);
             return null;
