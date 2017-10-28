@@ -7,9 +7,9 @@ import java.time.LocalDate;
  *
  * @author cassioseffrin
  */
-public abstract class Animal implements Acoes{
+public  class Animal implements Acoes{
     
-    
+    private int id;
     
     private String nome;
     private LocalDate dataNascimento;
@@ -23,6 +23,10 @@ public abstract class Animal implements Acoes{
         this.peso = peso;
         this.cor = cor;
         this.posicaoAtual = posicaoAtual;
+    }
+
+    public Animal() {
+       
     }
 
     public String getNome() {
@@ -63,6 +67,14 @@ public abstract class Animal implements Acoes{
 
     public void setPosicaoAtual(int posicaoAtual) {
         this.posicaoAtual = posicaoAtual;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     
