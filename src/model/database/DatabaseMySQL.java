@@ -13,13 +13,22 @@ import java.util.logging.Logger;
  */
 public class DatabaseMySQL implements Database {
 
-    private Connection connection;
+    private static Connection connection;
  
-    public Connection conectar() {
+    
+    public static Connection getConnection(){
+        if (connection == null){
+            return conectar();
+        }else{
+            return connection;
+        }
+    }
+    
+    public static Connection conectar() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            this.connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1/veterinaria", "root","123");
-            return this.connection;
+             connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1/veterinaria", "root","123");
+            return  connection;
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(DatabaseMySQL.class.getName()).log(Level.SEVERE, null, ex);
             return null;

@@ -23,23 +23,19 @@ public class AnimalTest {
         Cliente cassio = new Cliente(LocalDate.MAX, "249 9934.2344", "Cliente especial", "Jose", 3223343239L, "Masculino", LocalDate.MIN, "Rua C");
 
         Animal pepeu = new Animal();
-        pepeu.setNome("Pepeu");
-        pepeu.setCor("amerelo");
+        pepeu.setNome("Pet");
+        pepeu.setCor("azul");
         pepeu.setPeso(5);
-        
-        
-        DatabaseMySQL db = new DatabaseMySQL ();
-        Connection con = db.conectar();
-        
-        //Connection con = DatabaseMySQL.getConnection();
+
+        Connection con = DatabaseMySQL.getConnection();
         AnimalDAO animalDao = new AnimalDAO();
         animalDao.setConnection(con);
         animalDao.inserir(pepeu);
         
-        
+
         List<Animal> lstAnimais =  animalDao.listar();
         
-            System.out.println("tamanho" + lstAnimais.size());
+        System.out.println("tamanho" + lstAnimais.size());
             
        
         
