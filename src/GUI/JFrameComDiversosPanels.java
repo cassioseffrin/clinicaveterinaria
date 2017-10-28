@@ -21,13 +21,16 @@ public class JFrameComDiversosPanels extends JFrame implements ActionListener {
     private final JPanel jPainelCentro;
     private final JPanel jPainelCliente;
     private final JPanel jPainelAnimal;
+    private final JPanel jPainelAtendimento;
     private final JPanel jPanelStatus;
 
     private final JMenuBar menuBar;
     private final JMenu menuCadastros;
     private final JMenu menuRelatorios;
+    private final JMenu menuAtendimento;
     private final JMenuItem menuItemAnimal;
     private final JMenuItem menuItemCliente;
+    private final JMenuItem menuItemAtenderCliente;
     private final JMenuItem menuItemRelatorioClientes;
 
     public JFrameComDiversosPanels() {
@@ -39,6 +42,7 @@ public class JFrameComDiversosPanels extends JFrame implements ActionListener {
         jPainelCentro = new JPanel();
         jPainelCliente = new JPanelCliente();
         jPainelAnimal = new JPanelAnimal();
+        jPainelAtendimento = new JPanelAtendimento();
 
         jPanelStatus = new JPanel();
         jPanelStatus.setBackground(Color.yellow);
@@ -51,10 +55,20 @@ public class JFrameComDiversosPanels extends JFrame implements ActionListener {
         menuCadastros = new JMenu("Cadastros");
         menuBar.add(menuCadastros);
 
+        
+          menuAtendimento = new JMenu("Atendimento");
+                menuItemAtenderCliente = new JMenuItem("Atender Cliente");
+                menuItemAtenderCliente.addActionListener(this);
+                menuAtendimento.add(menuItemAtenderCliente);
+        
         menuRelatorios = new JMenu("Relatorios");
         menuBar.add(menuCadastros);
         menuBar.add(menuRelatorios);
+        menuBar.add(menuAtendimento);
 
+              
+                       
+                
         menuItemAnimal = new JMenuItem("Cadastro Animal");
         menuItemAnimal.addActionListener(this);
         menuCadastros.add(menuItemAnimal);
@@ -62,8 +76,9 @@ public class JFrameComDiversosPanels extends JFrame implements ActionListener {
         menuItemCliente.addActionListener(this);
         
        
-        menuCadastros.add(menuItemCliente);
         
+        
+        menuCadastros.add(menuItemCliente);
         menuItemRelatorioClientes = new JMenuItem("Relatorio Cliente");
         menuRelatorios.add(menuItemRelatorioClientes);
 
@@ -96,7 +111,14 @@ public class JFrameComDiversosPanels extends JFrame implements ActionListener {
             pack();
             setSize(600, 600);
             repaint();
+        }
+        if (e.getSource() == menuItemAtenderCliente) {
+            jPainelCentro.removeAll();
+            jPainelCentro.add(jPainelAtendimento, BorderLayout.CENTER);
 
+            pack();
+            setSize(600, 600);
+            repaint();
         }
 
     }
