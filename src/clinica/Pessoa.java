@@ -1,25 +1,23 @@
- 
 package clinica;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.Period;
 
 /**
  *
  * @author cassioseffrin
  */
+public abstract class Pessoa implements Acoes, Serializable {
 
-
-public abstract class Pessoa implements Acoes, Serializable{
-    
     private String nome;
     private long cpf;
- 
+
     private String sexo;
     private LocalDate dataNascimento;
     private String endereco;
 
-    public Pessoa(String nome, long cpf,  String sexo, LocalDate dataNascimento, String endereco) {
+    public Pessoa(String nome, long cpf, String sexo, LocalDate dataNascimento, String endereco) {
         this.nome = nome;
         this.cpf = cpf;
         this.sexo = sexo;
@@ -29,10 +27,6 @@ public abstract class Pessoa implements Acoes, Serializable{
 
     public Pessoa() {
     }
-    
-    
-
- 
 
     @Override
     public int mover(int metros, int posicaoAtual) {
@@ -57,7 +51,6 @@ public abstract class Pessoa implements Acoes, Serializable{
         this.nome = nome;
     }
 
- 
     public String getSexo() {
         return sexo;
     }
@@ -89,12 +82,13 @@ public abstract class Pessoa implements Acoes, Serializable{
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    
-    
-    
 
- 
-    
-    
-    
+    public static int getIdade(LocalDate nascimento, LocalDate dataAtual) {
+        if ((nascimento != null) && (dataAtual != null)) {
+            return Period.between(nascimento, dataAtual).getYears();
+        } else {
+            return 0;
+        }
+    }
+
 }

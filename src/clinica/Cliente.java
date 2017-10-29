@@ -20,6 +20,8 @@ import java.util.logging.Logger;
  */
 public class Cliente extends Pessoa implements Serializable, Acoes {
 
+    
+    private Integer id;
     private LocalDate dataCadastro;
     private String telefone;
     private String observacao;
@@ -67,6 +69,16 @@ public class Cliente extends Pessoa implements Serializable, Acoes {
         return "Cliente{" + "dataCadastro=" + dataCadastro + ", telefone=" + telefone + ", observacao=" + observacao + '}';
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    
+    
     public static boolean gravarColecao(HashSet<Cliente> lstClientes) {
         File f = new File(ARQUIVO);
         FileOutputStream fos;
