@@ -18,11 +18,11 @@ public class ClienteTest {
         DatabaseMySQL db = new DatabaseMySQL ();
         Connection con = db.conectar();
         
-        //Connection con = DatabaseMySQL.getConnection();
+ 
         ClienteDAO cliDao = new ClienteDAO();
         cliDao.setConnection(con);
         cliDao.inserir(cassio);
-//         System.out.println("cassio"+cassio);
+ 
     }
 
 }

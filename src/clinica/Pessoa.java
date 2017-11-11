@@ -3,6 +3,7 @@ package clinica;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
+import javafx.util.converter.LocalDateStringConverter;
 
 /**
  *
@@ -90,5 +91,14 @@ public abstract class Pessoa implements Acoes, Serializable {
             return 0;
         }
     }
+
+    @Override
+    public String toString() {
+        
+        return "Pessoa{" + "nome=" + nome + ", cpf=" + cpf + ", sexo=" + sexo + ", dataNascimento=" + dataNascimento + ", endereco=" + endereco + ", idade: " +getIdade(dataNascimento, LocalDate.now()) +'}';
+    }
+    
+    
+    
 
 }

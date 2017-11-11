@@ -66,8 +66,10 @@ public class Cliente extends Pessoa implements Serializable, Acoes {
 
     @Override
     public String toString() {
-        return "Cliente{" + "dataCadastro=" + dataCadastro + ", telefone=" + telefone + ", observacao=" + observacao + '}';
+        return  super.toString() + "Cliente{" + "id=" + id + ", dataCadastro=" + dataCadastro + ", telefone=" + telefone + ", observacao=" + observacao + '}';
     }
+
+ 
 
     public Integer getId() {
         return id;
