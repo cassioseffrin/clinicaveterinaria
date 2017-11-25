@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="606.0" text="Listagem de Clientes" textAlignment="CENTER" textFill="#5b27eb" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableViewClientes" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="nome" prefWidth="107.0" text="Nome" />
+            <TableColumn fx:id="cpf" prefWidth="163.0" text="CPF" />
+            <TableColumn fx:id="endereco" prefWidth="145.0" text="Endereço" />
+            <TableColumn fx:id="dataNascimento" prefWidth="108.0" text="Data Nascimento" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>
