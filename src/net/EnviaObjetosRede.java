@@ -1,12 +1,14 @@
 package net;
 
 import clinica.Cliente;
+import java.io.FileInputStream;
 
 /**
  *
  * @author cassioseffrin
  */
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -26,17 +28,23 @@ public class EnviaObjetosRede {
 
         while (!isConnected) {
             try {
-                socket = new Socket("10.0.0.158", 5000);
+                socket = new Socket("localhost", 5000);
                 System.out.println("Conectado!");
                 isConnected = true;
                 outputStream = new ObjectOutputStream(socket.getOutputStream());
                 Cliente cliente = new Cliente(LocalDate.MAX, "49 9934.2344", "cliente preferencial", "Macson", 3223343239L, "Masculino", LocalDate.MIN, "Rua A");
-                       
+
                 outputStream.writeObject(cliente);
+                System.out.println("objeto enviado!");
+                InputStream fis = socket.getInputStream();
+                int content;
+                while ((content = fis.read()) != -1) {
+                    System.out.print((char) content);
+                }
 
             } catch (SocketException se) {
                 se.printStackTrace();
-// System.exit(0);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -48,9 +56,3 @@ public class EnviaObjetosRede {
         envia.enviar();
     }
 }
- //  Cliente cassio2 = new Cliente(LocalDate.MAX, "49 9934.2344", "cliente VIP", "Cassio2", 3223343239L, "Masculino", LocalDate.MIN, "Rua A");
-               // Set<Cliente> colecaoCliente = new HashSet<>();
-              //  colecaoCliente.add(cassio);
-              //  colecaoCliente.add(cassio2);
-//        System.out.println("Object to be written = " + cassio);
-//      

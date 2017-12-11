@@ -23,9 +23,11 @@ public class Servidor extends Thread {
 
     public void receber() throws IOException, ClassNotFoundException {
 
+        System.out.println("Ouvindo rede...");
         serverSocket = new ServerSocket(5000);
+        
+        
         socket = serverSocket.accept();
-        //System.out.println("Ouvindo rede");
         inStream = new ObjectInputStream(socket.getInputStream());
         Cliente cliente = (Cliente) inStream.readObject();
         System.out.println("Nome: " + cliente.getNome());
@@ -55,4 +57,9 @@ public class Servidor extends Thread {
             Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+    
+    
+    
 }

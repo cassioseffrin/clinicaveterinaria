@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.dao;
+package test;
 
-import clinica.Animal;
-import clinica.Cliente;
-import java.sql.Connection;
+import model.clinica.Animal;
+import model.clinica.Cliente;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import model.database.DatabaseMySQL;
+import model.dao.AnimalDAO;
 
 /**
  *
@@ -19,7 +17,10 @@ import model.database.DatabaseMySQL;
  */
 public class AnimalTest {
     
-        public static void main(String a[]) {
+    
+    
+
+    public static void main(String a[]) {
         Cliente cassio = new Cliente(LocalDate.MAX, "249 9934.2344", "Cliente especial", "Jose", 3223343239L, "Masculino", LocalDate.MIN, "Rua C");
 
         Animal pepeu = new Animal();
@@ -27,20 +28,15 @@ public class AnimalTest {
         pepeu.setCor("azul");
         pepeu.setPeso(5);
 
-        Connection con = DatabaseMySQL.getConnection();
+        System.out.println("alow");
+        
+        
         AnimalDAO animalDao = new AnimalDAO();
-        animalDao.setConnection(con);
         animalDao.inserir(pepeu);
-        
 
-        List<Animal> lstAnimais =  animalDao.listar();
-        
+        List<Animal> lstAnimais = animalDao.listar();
+
         System.out.println("tamanho" + lstAnimais.size());
-            
-       
-        
-        
-        
- 
+
     }
 }
